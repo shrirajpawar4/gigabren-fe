@@ -1,103 +1,101 @@
-import Image from "next/image";
+// File: app/page.tsx
+'use client';
+
+import React, { useState } from 'react';
+import Navbar from '../components/layout/Navbar';
+import PricingCard from '../components/subscription/PricingCard';
+import PaymentModal from '../components/PaymentModal';
+import Footer from '../components/layout/Footer';
+import { useAppKitAccount } from "@reown/appkit/react";
+import { useReadGigaBrainPassTotalSupply } from '../src/generated/wagmiHooksGen';
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isPaymentModalOpen, setIsPaymentModalOpen] = useState(false);
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
+  const subscriptionPlan = {
+    title: 'Monthly Pass',
+    price: '4.99 USDC',
+    subtitle: '30 days of Access',
+    features: [
+      '30 days of Platform Access',
+      'Elite Members-Only Community',
+      'Early Access to New Features',
+      'Exclusive Investment Opportunities',
+      'Reward Program',
+      'Direct Access to Founding Team',
+      'Benefit from Supply Reduction'
+    ],
+    buttonText: 'Buy on Base'
+  };
+
+  const { address } = useAppKitAccount();
+  const { data: totalMinted, refetch: refetchTotalSupply, isLoading: isSupplyLoading } = useReadGigaBrainPassTotalSupply();
+  const MAX_SUPPLY = 42;
+  const remaining = typeof totalMinted === 'bigint' ? MAX_SUPPLY - Number(totalMinted) : MAX_SUPPLY;
+  console.log('Connected wallet address:', address)
+
+  return (
+    <main className="min-h-screen bg-[#0A0B0D] text-white">
+      <Navbar isMenuOpen={isMenuOpen} toggleMenu={toggleMenu} />
+
+      {/* Hero Section */}
+      <section className="px-6 py-20 text-center">
+        <div className="mb-8">
+          <h2 className="text-gray-400 uppercase tracking-wider">SUBSCRIPTION PLANS</h2>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
+        <div className="flex justify-center mb-4">
+          <div className="w-12 h-12">
+            <svg viewBox="0 0 24 24" className="w-full h-full text-[#00FF9D]">
+              <path fill="currentColor" d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+            </svg>
+          </div>
+        </div>
+        <h1 className="text-5xl font-bold mb-6 bg-gradient-to-r from-[#00FF9D] to-[#00CC7E] bg-clip-text text-transparent">
+          Select Your Access Level
+        </h1>
+        <p className="text-xl text-gray-400 max-w-3xl mx-auto mb-10">
+          Access institutional-grade market intelligence and analytics. Choose the plan that best suits your needs.
+        </p>
+        
+        <div className="mb-4 text-[#00FF9D] text-lg font-mono">
+          {isSupplyLoading ? 'Loading supply...' : `Remaining Passes: ${remaining}`}
+        </div>
+        <div className="flex justify-center gap-4 text-sm text-gray-400 mb-16">
+          <div className="flex items-center">
+            <span className="w-2 h-2 bg-[#00FF9D] rounded-full mr-2"></span>
+            Token Burn: Temporary Access
+          </div>
+          <div className="flex items-center">
+            <span className="w-2 h-2 bg-[#00FF9D] rounded-full mr-2"></span>
+            Token Hold: Permanent Access
+          </div>
+          <div className="flex items-center">
+            <span className="w-2 h-2 bg-[#00FF9D] rounded-full mr-2"></span>
+            Every burn increases holder value
+          </div>
+        </div>
+
+        {/* Pricing Card */}
+        <div className="max-w-4xl mx-auto">
+          <PricingCard 
+            {...subscriptionPlan}
+            onBuyClick={() => setIsPaymentModalOpen(true)}
           />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <Footer />
+
+      <PaymentModal 
+        isOpen={isPaymentModalOpen}
+        onClose={() => setIsPaymentModalOpen(false)}
+      />
+    </main>
   );
 }
