@@ -1,7 +1,13 @@
 import React, { useEffect, useState } from "react";
 // import { useAppKitWallet } from "@reown/appkit-wallet-button/react";
 import { useAppKit, useDisconnect, useAppKitAccount } from "@reown/appkit/react";
+import { Space_Mono } from 'next/font/google';
 
+const spaceMono = Space_Mono({
+  weight: ['400', '700'],
+  subsets: ['latin'],
+  display: 'swap',
+});
 
 interface NavbarProps {
   isMenuOpen: boolean;
@@ -13,42 +19,50 @@ const Navbar: React.FC<NavbarProps> = ({ isMenuOpen, toggleMenu }) => {
   const { disconnect } = useDisconnect();
   const { isConnected } = useAppKitAccount();
 
+  const buttonStyle = `block font-mono tracking-wider text-sm px-4 py-2 sm:px-5 sm:py-3 bg-gradient-to-r from-green-400 to-emerald-500 text-black font-semibold rounded-lg hover:shadow-lg hover:shadow-green-400/20 transition-all duration-300 transform hover:scale-[1.02] ${spaceMono.className}`;
 
   const renderButton = () => {
     if (!isConnected) {
       return (
         <button
           onClick={() => open()}
-          className="bg-[#00FF9D] text-black px-4 py-2 rounded-lg"
+          className={buttonStyle}
         >
-          Connect Wallet
+          CONNECT_WALLET
         </button>
       );
     } else {
       return (
-        <div className="flex flex-col md:flex-row md:items-center md:space-x-4 space-y-2 md:space-y-0">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:space-x-4 space-y-2 sm:space-y-0">
           <button
             onClick={() => disconnect()}
-            className="bg-[#00FF9D] text-black px-4 py-2 rounded-lg"
+            className={buttonStyle}
           >
-            Disconnect wallet
+            DISCONNECT_WALLET
           </button>
         </div>
       );
     }
   };
 
-
   return (
-    <nav className="flex justify-between items-center px-6 py-4">
+    <nav className="flex justify-between items-center px-4 sm:px-6 py-4">
       <div className="flex items-center">
-        <div className="text-2xl font-bold text-[#00FF9D]">GIGABRAIN</div>
+        <span className="font-bold text-lg sm:text-2xl bg-gradient-to-r from-green-400 to-emerald-500 bg-clip-text text-transparent transition-all duration-200 group-hover:from-green-500 group-hover:to-emerald-600">
+          Gigabren
+        </span>
       </div>
 
-      <div className="hidden md:flex items-center space-x-8">{renderButton()}</div>
+      <div className="hidden sm:flex items-center space-x-4 sm:space-x-8">
+        {renderButton()}
+      </div>
 
-      <div className="md:hidden">
-        <button onClick={toggleMenu} className="text-white focus:outline-none">
+      <div className="sm:hidden">
+        <button 
+          onClick={toggleMenu} 
+          className="text-white focus:outline-none p-2"
+          aria-label="Toggle menu"
+        >
           <svg
             className="w-6 h-6"
             fill="none"
@@ -66,7 +80,7 @@ const Navbar: React.FC<NavbarProps> = ({ isMenuOpen, toggleMenu }) => {
       </div>
 
       {isMenuOpen && (
-        <div className="absolute top-16 left-0 right-0 bg-black border-b border-gray-800 py-4 px-6 md:hidden z-10">
+        <div className="absolute top-16 left-0 right-0 bg-[#0A0B0D] border-b border-gray-800/50 py-4 px-4 sm:px-6 sm:hidden z-10">
           {renderButton()}
         </div>
       )}

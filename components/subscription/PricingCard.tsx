@@ -1,28 +1,28 @@
 import React from 'react';
+import { useReadGigaBrainPassPassCost } from '../../src/generated/wagmiHooksGen';
+import { formatUnits } from 'viem';
 
 interface PricingCardProps {
   title: string;
-  price: string;
   subtitle: string;
   features: string[];
   buttonText: string;
   onBuyClick: () => void;
 }
 
+const USDC_DECIMALS = 6;
+
 const PricingCard: React.FC<PricingCardProps> = ({
   title,
-  price,
   subtitle,
   features,
   buttonText,
   onBuyClick
 }) => {
+  const { data: passCost, isLoading } = useReadGigaBrainPassPassCost();
+
   return (
     <div className="bg-[#12141A] rounded-2xl p-8 border border-gray-800 hover:border-[#00FF9D] transition-colors relative overflow-hidden">
-      <div className="absolute top-4 right-4 px-4 py-1 bg-[#1A1C23] rounded-full text-[#00FF9D] text-sm">
-        Elite Membership
-      </div>
-      
       <div className="flex gap-8">
         <div className="flex-1">
           <div className="w-16 h-16 bg-gradient-to-br from-[#00FF9D] to-[#00CC7E] rounded-xl mb-6 flex items-center justify-center">
@@ -32,12 +32,14 @@ const PricingCard: React.FC<PricingCardProps> = ({
           </div>
           <h3 className="text-2xl font-bold mb-4">{title}</h3>
           <div className="mb-6">
-            <div className="text-4xl font-bold text-[#00FF9D]">{price}</div>
+            <div className="text-4xl font-bold text-[#00FF9D]">
+              {isLoading ? '...' : passCost ? `${formatUnits(passCost, USDC_DECIMALS)} USDC` : '0 USDC'}
+            </div>
             <div className="text-gray-400">{subtitle}</div>
           </div>
           <button 
             onClick={onBuyClick}
-            className="w-full bg-[#FFB800] hover:bg-[#FFA500] text-black font-bold py-3 px-6 rounded-lg transition-colors"
+            className="w-full px-4 sm:px-6 py-3 sm:py-4 bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-400 text-gray-900 font-semibold rounded-lg hover:shadow-lg hover:shadow-amber-500/20 transition-all duration-300 text-xs sm:text-sm transform hover:scale-[1.02]"
           >
             {buttonText}
           </button>

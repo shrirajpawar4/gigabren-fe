@@ -1,10 +1,9 @@
-
 // app/layout.tsx
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 
-import { headers } from "next/headers"; // added
+import { headers } from "next/headers";
 import ContextProvider from '@/context'
 
 export const metadata: Metadata = {

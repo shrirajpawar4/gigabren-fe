@@ -12,7 +12,7 @@ export default defineConfig({
       name: "gigaBrainPass",
       abi: GigaBrenPass.abi as Abi,
       address: {
-        84532: "0xbea09d316cea7fd48b547e9f88a4662bc941e268",
+        84532: "0x841ef521c0509e3cf26629650472e0f82920953b",
       },
     },
     {

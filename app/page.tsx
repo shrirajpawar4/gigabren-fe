@@ -19,7 +19,6 @@ export default function Home() {
 
   const subscriptionPlan = {
     title: 'Monthly Pass',
-    price: '4.99 USDC',
     subtitle: '30 days of Access',
     features: [
       '30 days of Platform Access',
@@ -64,20 +63,6 @@ export default function Home() {
         
         <div className="mb-4 text-[#00FF9D] text-lg font-mono">
           {isSupplyLoading ? 'Loading supply...' : `Remaining Passes: ${remaining}`}
-        </div>
-        <div className="flex justify-center gap-4 text-sm text-gray-400 mb-16">
-          <div className="flex items-center">
-            <span className="w-2 h-2 bg-[#00FF9D] rounded-full mr-2"></span>
-            Token Burn: Temporary Access
-          </div>
-          <div className="flex items-center">
-            <span className="w-2 h-2 bg-[#00FF9D] rounded-full mr-2"></span>
-            Token Hold: Permanent Access
-          </div>
-          <div className="flex items-center">
-            <span className="w-2 h-2 bg-[#00FF9D] rounded-full mr-2"></span>
-            Every burn increases holder value
-          </div>
         </div>
 
         {/* Pricing Card */}

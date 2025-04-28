@@ -4,9 +4,10 @@
 import React, { useEffect, useState } from 'react'
 import { waitForTransactionReceipt } from 'wagmi/actions'
 import { useChainId } from 'wagmi'
-import { useReadUsdcTokenContractAllowance, useWriteUsdcTokenContractApprove, useReadGigaBrainPassPassCost, useWriteGigaBrainPassMintPass, useReadGigaBrainPassTotalSupply } from '../src/generated/wagmiHooksGen'
+import { useReadUsdcTokenContractAllowance, useWriteUsdcTokenContractApprove, useReadUsdcTokenContractBalanceOf, useReadGigaBrainPassPassCost, useWriteGigaBrainPassMintPass, useReadGigaBrainPassTotalSupply } from '../src/generated/wagmiHooksGen'
 import { config } from '@/config'
 import { useAppKitAccount } from "@reown/appkit/react";
+import { formatUnits } from 'viem'
 
 interface PaymentModalProps {
   isOpen: boolean
@@ -20,16 +21,28 @@ const PaymentModal: React.FC<PaymentModalProps> = ({ isOpen, onClose }) => {
   const { data: passCost, refetch: refetchCost } = useReadGigaBrainPassPassCost()
   const { address: userAddress } = useAppKitAccount();
   const { refetch: refetchAllowance } = useReadUsdcTokenContractAllowance({
-    args: [userAddress as `0x${string}`, "0xbea09d316cea7fd48b547e9f88a4662bc941e268"],
+    args: [userAddress as `0x${string}`, "0x841ef521c0509e3cf26629650472e0f82920953b"],
   })
   const { writeContractAsync: approveUSDC } = useWriteUsdcTokenContractApprove()
   const { writeContractAsync: mintPass } = useWriteGigaBrainPassMintPass()
   const [loading, setLoading] = useState(false)
+  const [isGiftMode, setIsGiftMode] = useState(false);
+  const [mintStatus, setMintStatus] = useState('Initializing subscription pass');
+  const [showInsufficientBalance, setShowInsufficientBalance] = useState(false);
+  const [needsApproval, setNeedsApproval] = useState(false);
 
   // SUPPLY HOOKS
   const { data: totalMinted, isLoading: isSupplyLoading } = useReadGigaBrainPassTotalSupply();
   const MAX_SUPPLY = 42;
   const remaining = typeof totalMinted === 'bigint' ? MAX_SUPPLY - Number(totalMinted) : MAX_SUPPLY;
+
+  // USDC Balance and Allowance
+  const { data: usdcBalance } = useReadUsdcTokenContractBalanceOf({
+    args: [userAddress as `0x${string}`],
+  });
+  const { data: allowance } = useReadUsdcTokenContractAllowance({
+    args: [userAddress as `0x${string}`, "0x841ef521c0509e3cf26629650472e0f82920953b"],
+  });
 
   useEffect(() => {
     if (isOpen) {
@@ -38,62 +51,63 @@ const PaymentModal: React.FC<PaymentModalProps> = ({ isOpen, onClose }) => {
     }
   }, [isOpen, refetchCost, chainId])
 
+  useEffect(() => {
+    if (passCost && usdcBalance) {
+      const hasEnoughBalance = Number(usdcBalance) >= Number(passCost);
+      if (!hasEnoughBalance) {
+        setShowInsufficientBalance(true);
+        return;
+      }
+
+      const hasEnoughAllowance = allowance && Number(allowance) >= Number(passCost);
+      setNeedsApproval(!hasEnoughAllowance);
+    }
+  }, [passCost, usdcBalance, allowance]);
+
   if (!isOpen) return null
   if (!userAddress) {
     return <div>Please connect your wallet.</div>;
   }
 
+  const handleApprove = async () => {
+    if (!passCost) return;
+    try {
+      setMintStatus('Approving USDC...');
+      await approveUSDC({
+        args: ["0x841ef521c0509e3cf26629650472e0f82920953b", passCost],
+      });
+      setNeedsApproval(false);
+      setMintStatus('USDC Approved');
+    } catch (error) {
+      console.error('Approval failed:', error);
+      setMintStatus('Approval failed');
+    }
+  };
+
   const handleMint = async () => {
     try {
-      setLoading(true)
-      console.log('Connected network chainId:', chainId)
-
-      const freshCostResult = await refetchCost()
-      console.log('freshCostResult:', freshCostResult)
-      if (freshCostResult.error) {
-        console.error('Error fetching cost:', freshCostResult.error)
-      }
-      const freshAllowanceResult = await refetchAllowance()
-      console.log('freshAllowanceResult:', freshAllowanceResult)
-      if (freshAllowanceResult.error) {
-        console.error('Error fetching allowance:', freshAllowanceResult.error)
-      }
-
-      const freshCost = freshCostResult.data
-      const freshAllowance = freshAllowanceResult.data
-
-      if (!freshCost) throw new Error('Cost could not be fetched')
-      if (freshAllowance === undefined) throw new Error('Allowance could not be fetched')
-
-      if (freshAllowance < freshCost) {
-        const approveTx = await approveUSDC({
-          args: ["0xbea09d316cea7fd48b547e9f88a4662bc941e268", freshCost],
-        })
-        await waitForTransactionReceipt(config, { hash: approveTx })
-      }
-
-      const mintTx = await mintPass({
+      setMintStatus('Minting pass...');
+      await mintPass({
         args: [userAddress as `0x${string}`],
-      })
-      await waitForTransactionReceipt(config, { hash: mintTx })
-
-      console.log('Pass minted successfully!')
-      onClose()
+      });
+      onClose();
     } catch (error) {
-      console.error('Minting failed:', error)
-    } finally {
-      setLoading(false)
+      console.error('Minting failed:', error);
+      setMintStatus('Minting failed');
     }
   }
 
   return (
-    <div className="fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center z-50">
-      <div className="bg-[#0A0B0D] border border-gray-800/50 rounded-lg w-full max-w-2xl mx-4">
-        <div className="flex justify-between items-center p-6 border-b border-gray-800/50">
-          <h2 className="text-[#00FF9D] text-xl font-mono">GIGABRAIN PASS v1.0.0</h2>
-          <button 
+    <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+      <div className="bg-[#0A0B0D] border border-gray-800/50 rounded-xl p-6 sm:p-8 max-w-md w-full mx-auto">
+        <div className="flex justify-between items-center mb-6">
+          <h2 className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-green-400 to-emerald-500 bg-clip-text text-transparent">
+            {showInsufficientBalance ? 'Insufficient Balance' : 'Complete Payment'}
+          </h2>
+          <button
             onClick={onClose}
             className="text-gray-400 hover:text-white transition-colors"
+            aria-label="Close modal"
           >
             <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -101,40 +115,58 @@ const PaymentModal: React.FC<PaymentModalProps> = ({ isOpen, onClose }) => {
           </button>
         </div>
 
-        <div className="p-6">
-          <div className="mb-8">
-            <h3 className="text-[#00FF9D] text-lg font-mono mb-2">[ Monthly Access ]</h3>
-            <p className="text-gray-400 mb-6">&gt; Access our platform for 30 days.</p>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div className="bg-[#12141A] p-4 rounded-lg">
-                <div className="text-gray-400 mb-1">PRICE:</div>
-                <div className="text-[#00FF9D] text-xl">
-                  {passCost ? `${Number(passCost) / 10 ** USDC_DECIMALS} USDC` : '...'}
-                </div>
-              </div>
-              <div className="bg-[#12141A] p-4 rounded-lg">
-                <div className="text-gray-400 mb-1">TOTAL SUPPLY:</div>
-                <div className="text-[#00FF9D] text-xl">{remaining}</div>
-              </div>
+        {showInsufficientBalance ? (
+          <div className="space-y-4">
+            <p className="text-gray-300 text-sm sm:text-base">
+              You don't have enough USDC to complete this transaction. Please add more USDC to your wallet.
+            </p>
+            <div className="flex justify-end">
+              <button
+                onClick={onClose}
+                className="px-4 py-2 bg-gray-800 text-white rounded-lg hover:bg-gray-700 transition-colors"
+              >
+                Close
+              </button>
             </div>
           </div>
-
-          <div className="bg-[#12141A] p-4 rounded-lg mb-6">
-            <div className="flex items-center gap-3 mb-2">
-              <div className="w-6 h-6 text-gray-400">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-              </div>
-              <h3 className="text-[#00FF9D] font-mono">[ MINT PASS ]</h3>
+        ) : (
+          <div className="space-y-6">
+            <div className="space-y-2">
+              <p className="text-gray-400 text-sm">Total Amount</p>
+              <p className="text-2xl sm:text-3xl font-bold text-white">
+                {passCost ? formatUnits(passCost, USDC_DECIMALS) : '0'} USDC
+              </p>
             </div>
-            <p className="text-gray-400 ml-9">&gt; Initialize your subscription</p>
-          </div>
 
-          <button onClick={handleMint} disabled={loading} className="w-full bg-[#00FF9D] hover:bg-[#00CC7E] text-black font-mono py-4 rounded-lg transition-colors">
-            {loading ? 'Processing...' : 'MINT PASS'}
-          </button>
-        </div>
+            {needsApproval ? (
+              <div className="space-y-4">
+                <p className="text-gray-300 text-sm sm:text-base">
+                  You need to approve USDC spending before you can mint your pass.
+                </p>
+                <button
+                  onClick={handleApprove}
+                  disabled={mintStatus === 'Approving USDC...'}
+                  className="w-full px-4 py-3 bg-gradient-to-r from-green-400 to-emerald-500 text-black font-semibold rounded-lg hover:shadow-lg hover:shadow-green-400/20 transition-all duration-300 transform hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  {mintStatus === 'Approving USDC...' ? 'Approving...' : 'Approve USDC'}
+                </button>
+              </div>
+            ) : (
+              <div className="space-y-4">
+                <p className="text-gray-300 text-sm sm:text-base">
+                  Your USDC has been approved. You can now mint your pass.
+                </p>
+                <button
+                  onClick={handleMint}
+                  disabled={mintStatus === 'Minting...'}
+                  className="w-full px-4 py-3 bg-gradient-to-r from-green-400 to-emerald-500 text-black font-semibold rounded-lg hover:shadow-lg hover:shadow-green-400/20 transition-all duration-300 transform hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  {mintStatus === 'Minting...' ? 'Minting...' : 'Mint Pass'}
+                </button>
+              </div>
+            )}
+          </div>
+        )}
       </div>
     </div>
   )
