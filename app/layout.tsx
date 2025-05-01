@@ -13,8 +13,21 @@ const karla = Karla({
 });
 
 export const metadata: Metadata = {
-  title: "AppKit Example App",
-  description: "Powered by WalletConnect"
+  title: "Gigabrain",
+  icons: {
+    icon: [
+      {
+        url: '/gigabrain-logo-tp.png',
+        type: 'image/png',
+      },
+    ],
+    apple: [
+      {
+        url: '/gigabrain-logo-tp.png',
+        type: 'image/png',
+      },
+    ],
+  },
 };
 
 export default async function RootLayout({
