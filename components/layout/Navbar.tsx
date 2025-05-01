@@ -48,6 +48,11 @@ const Navbar: React.FC<NavbarProps> = ({ isMenuOpen, toggleMenu }) => {
   return (
     <nav className="flex justify-between items-center px-4 sm:px-6 py-4">
       <div className="flex items-center">
+        <img 
+          src="/gigabrain-logo-tp.png" 
+          alt="Gigabrain Logo" 
+          className="w-12 h-12 mr-2"
+        />
         <span className="font-bold text-lg sm:text-2xl text-emerald-400 transition-all duration-200 group-hover:from-green-500 group-hover:to-emerald-600">
           Gigabrain
         </span>

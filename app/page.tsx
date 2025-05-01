@@ -7,7 +7,7 @@ import PricingCard from '../components/subscription/PricingCard';
 import PaymentModal from '../components/PaymentModal';
 import Footer from '../components/layout/Footer';
 import { useAppKitAccount } from "@reown/appkit/react";
-import { useReadGigaBrainPassTotalSupply } from '../src/generated/wagmiHooksGen';
+import { useReadGigaBrainPassTotalSupply, useReadGigaBrainPassMaxSupply } from '../src/generated/wagmiHooksGen';
 
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -21,21 +21,22 @@ export default function Home() {
     title: 'Monthly Pass',
     subtitle: '30 days of Access',
     features: [
-      '30 days of Platform Access',
-      'Elite Members-Only Community',
-      'Early Access to New Features',
-      'Exclusive Investment Opportunities',
-      'Reward Program',
-      'Direct Access to Founding Team',
-      'Benefit from Supply Reduction'
+      'One-Click Trade Execution',
+      'Alpha Feed Signals',
+      'Chat Assistant',
+      'Smart Market Triggers',
+      'Brain Real-Time Feed',
+      'Curated News, DAO & Research'
     ],
-    buttonText: 'Buy on Base'
+    buttonText: 'Subscribe'
   };
 
   const { address } = useAppKitAccount();
   const { data: totalMinted, refetch: refetchTotalSupply, isLoading: isSupplyLoading } = useReadGigaBrainPassTotalSupply();
-  const MAX_SUPPLY = 42;
-  const remaining = typeof totalMinted === 'bigint' ? MAX_SUPPLY - Number(totalMinted) : MAX_SUPPLY;
+  const { data: maxSupply } = useReadGigaBrainPassMaxSupply();
+  const remaining = typeof totalMinted === 'bigint' && typeof maxSupply === 'bigint' 
+    ? Number(maxSupply) - Number(totalMinted) 
+    : 0;
   console.log('Connected wallet address:', address)
 
   return (
@@ -55,10 +56,10 @@ export default function Home() {
           </div>
         </div>
         <h1 className="text-5xl font-bold mb-6 text-emerald-400">
-          Select Your Access Level
+          USDC Subscription
         </h1>
         <p className="text-xl text-gray-400 max-w-3xl mx-auto mb-10">
-          Access institutional-grade market intelligence and analytics. Choose the plan that best suits your needs.
+          Access institutional-grade market intelligence and analytics.
         </p>
         
         <div className="mb-4 text-emerald-400 text-lg font-mono">

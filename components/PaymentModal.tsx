@@ -4,7 +4,7 @@
 import React, { useEffect, useState } from 'react'
 import { waitForTransactionReceipt } from 'wagmi/actions'
 import { useChainId } from 'wagmi'
-import { useReadUsdcTokenContractAllowance, useWriteUsdcTokenContractApprove, useReadUsdcTokenContractBalanceOf, useReadGigaBrainPassPassCost, useWriteGigaBrainPass, useReadGigaBrainPassTotalSupply, useWriteGigaBrainPassMintPass } from '../src/generated/wagmiHooksGen'
+import { useReadUsdcTokenContractAllowance, useWriteUsdcTokenContractApprove, useReadUsdcTokenContractBalanceOf, useReadGigaBrainPassPassCost, useWriteGigaBrainPass, useReadGigaBrainPassTotalSupply, useWriteGigaBrainPassMintPass, useReadGigaBrainPassMaxSupply } from '../src/generated/wagmiHooksGen'
 import { config } from '@/config'
 import { useAppKitAccount } from "@reown/appkit/react";
 import { formatUnits } from 'viem'
@@ -35,8 +35,10 @@ const PaymentModal: React.FC<PaymentModalProps> = ({ isOpen, onClose }) => {
 
   // SUPPLY HOOKS
   const { data: totalMinted, isLoading: isSupplyLoading } = useReadGigaBrainPassTotalSupply();
-  const MAX_SUPPLY = 42;
-  const remaining = typeof totalMinted === 'bigint' ? MAX_SUPPLY - Number(totalMinted) : MAX_SUPPLY;
+  const { data: maxSupply } = useReadGigaBrainPassMaxSupply();
+  const remaining = typeof totalMinted === 'bigint' && typeof maxSupply === 'bigint' 
+    ? Number(maxSupply) - Number(totalMinted) 
+    : 0;
 
   // USDC Balance and Allowance
   const { data: usdcBalance, refetch: refetchUsdcBalance } = useReadUsdcTokenContractBalanceOf({
