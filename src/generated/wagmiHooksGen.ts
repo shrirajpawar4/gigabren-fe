@@ -10,7 +10,8 @@ import {
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 /**
- * [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x036CbD53842c5426634e7929541eC2318f3dCF7e)
+ * - [__View Contract on Base Basescan__](https://basescan.org/address/0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913)
+ * - [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x036CbD53842c5426634e7929541eC2318f3dCF7e)
  */
 export const usdcTokenContractAbi = [
   {
@@ -110,14 +111,17 @@ export const usdcTokenContractAbi = [
 ] as const
 
 /**
- * [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x036CbD53842c5426634e7929541eC2318f3dCF7e)
+ * - [__View Contract on Base Basescan__](https://basescan.org/address/0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913)
+ * - [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x036CbD53842c5426634e7929541eC2318f3dCF7e)
  */
 export const usdcTokenContractAddress = {
+  8453: '0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913',
   84532: '0x036CbD53842c5426634e7929541eC2318f3dCF7e',
 } as const
 
 /**
- * [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x036CbD53842c5426634e7929541eC2318f3dCF7e)
+ * - [__View Contract on Base Basescan__](https://basescan.org/address/0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913)
+ * - [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x036CbD53842c5426634e7929541eC2318f3dCF7e)
  */
 export const usdcTokenContractConfig = {
   address: usdcTokenContractAddress,
@@ -129,12 +133,16 @@ export const usdcTokenContractConfig = {
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 /**
- * [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x841ef521c0509e3cf26629650472e0f82920953b)
+ * - [__View Contract on Base Basescan__](https://basescan.org/address/0xe9e98a29bc63a8c7e35bfbbc858468342aad7b24)
+ * - [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x841ef521c0509e3cf26629650472e0f82920953b)
  */
 export const gigaBrainPassAbi = [
   {
     type: 'constructor',
-    inputs: [{ name: '_usdcToken', internalType: 'address', type: 'address' }],
+    inputs: [
+      { name: '_usdcToken', internalType: 'address', type: 'address' },
+      { name: '_governance', internalType: 'address', type: 'address' },
+    ],
     stateMutability: 'nonpayable',
   },
   {
@@ -583,14 +591,17 @@ export const gigaBrainPassAbi = [
 ] as const
 
 /**
- * [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x841ef521c0509e3cf26629650472e0f82920953b)
+ * - [__View Contract on Base Basescan__](https://basescan.org/address/0xe9e98a29bc63a8c7e35bfbbc858468342aad7b24)
+ * - [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x841ef521c0509e3cf26629650472e0f82920953b)
  */
 export const gigaBrainPassAddress = {
+  8453: '0xe9E98a29bC63A8C7E35BfbbC858468342AAD7B24',
   84532: '0x841Ef521C0509E3Cf26629650472e0f82920953b',
 } as const
 
 /**
- * [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x841ef521c0509e3cf26629650472e0f82920953b)
+ * - [__View Contract on Base Basescan__](https://basescan.org/address/0xe9e98a29bc63a8c7e35bfbbc858468342aad7b24)
+ * - [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x841ef521c0509e3cf26629650472e0f82920953b)
  */
 export const gigaBrainPassConfig = {
   address: gigaBrainPassAddress,
@@ -604,7 +615,8 @@ export const gigaBrainPassConfig = {
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link usdcTokenContractAbi}__
  *
- * [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x036CbD53842c5426634e7929541eC2318f3dCF7e)
+ * - [__View Contract on Base Basescan__](https://basescan.org/address/0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913)
+ * - [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x036CbD53842c5426634e7929541eC2318f3dCF7e)
  */
 export const useReadUsdcTokenContract = /*#__PURE__*/ createUseReadContract({
   abi: usdcTokenContractAbi,
@@ -614,7 +626,8 @@ export const useReadUsdcTokenContract = /*#__PURE__*/ createUseReadContract({
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link usdcTokenContractAbi}__ and `functionName` set to `"allowance"`
  *
- * [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x036CbD53842c5426634e7929541eC2318f3dCF7e)
+ * - [__View Contract on Base Basescan__](https://basescan.org/address/0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913)
+ * - [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x036CbD53842c5426634e7929541eC2318f3dCF7e)
  */
 export const useReadUsdcTokenContractAllowance =
   /*#__PURE__*/ createUseReadContract({
@@ -626,7 +639,8 @@ export const useReadUsdcTokenContractAllowance =
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link usdcTokenContractAbi}__ and `functionName` set to `"balanceOf"`
  *
- * [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x036CbD53842c5426634e7929541eC2318f3dCF7e)
+ * - [__View Contract on Base Basescan__](https://basescan.org/address/0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913)
+ * - [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x036CbD53842c5426634e7929541eC2318f3dCF7e)
  */
 export const useReadUsdcTokenContractBalanceOf =
   /*#__PURE__*/ createUseReadContract({
@@ -638,7 +652,8 @@ export const useReadUsdcTokenContractBalanceOf =
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link usdcTokenContractAbi}__ and `functionName` set to `"decimals"`
  *
- * [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x036CbD53842c5426634e7929541eC2318f3dCF7e)
+ * - [__View Contract on Base Basescan__](https://basescan.org/address/0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913)
+ * - [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x036CbD53842c5426634e7929541eC2318f3dCF7e)
  */
 export const useReadUsdcTokenContractDecimals =
   /*#__PURE__*/ createUseReadContract({
@@ -650,7 +665,8 @@ export const useReadUsdcTokenContractDecimals =
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link usdcTokenContractAbi}__ and `functionName` set to `"name"`
  *
- * [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x036CbD53842c5426634e7929541eC2318f3dCF7e)
+ * - [__View Contract on Base Basescan__](https://basescan.org/address/0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913)
+ * - [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x036CbD53842c5426634e7929541eC2318f3dCF7e)
  */
 export const useReadUsdcTokenContractName = /*#__PURE__*/ createUseReadContract(
   {
@@ -663,7 +679,8 @@ export const useReadUsdcTokenContractName = /*#__PURE__*/ createUseReadContract(
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link usdcTokenContractAbi}__ and `functionName` set to `"symbol"`
  *
- * [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x036CbD53842c5426634e7929541eC2318f3dCF7e)
+ * - [__View Contract on Base Basescan__](https://basescan.org/address/0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913)
+ * - [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x036CbD53842c5426634e7929541eC2318f3dCF7e)
  */
 export const useReadUsdcTokenContractSymbol =
   /*#__PURE__*/ createUseReadContract({
@@ -675,7 +692,8 @@ export const useReadUsdcTokenContractSymbol =
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link usdcTokenContractAbi}__ and `functionName` set to `"totalSupply"`
  *
- * [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x036CbD53842c5426634e7929541eC2318f3dCF7e)
+ * - [__View Contract on Base Basescan__](https://basescan.org/address/0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913)
+ * - [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x036CbD53842c5426634e7929541eC2318f3dCF7e)
  */
 export const useReadUsdcTokenContractTotalSupply =
   /*#__PURE__*/ createUseReadContract({
@@ -687,7 +705,8 @@ export const useReadUsdcTokenContractTotalSupply =
 /**
  * Wraps __{@link useWriteContract}__ with `abi` set to __{@link usdcTokenContractAbi}__
  *
- * [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x036CbD53842c5426634e7929541eC2318f3dCF7e)
+ * - [__View Contract on Base Basescan__](https://basescan.org/address/0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913)
+ * - [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x036CbD53842c5426634e7929541eC2318f3dCF7e)
  */
 export const useWriteUsdcTokenContract = /*#__PURE__*/ createUseWriteContract({
   abi: usdcTokenContractAbi,
@@ -697,7 +716,8 @@ export const useWriteUsdcTokenContract = /*#__PURE__*/ createUseWriteContract({
 /**
  * Wraps __{@link useWriteContract}__ with `abi` set to __{@link usdcTokenContractAbi}__ and `functionName` set to `"approve"`
  *
- * [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x036CbD53842c5426634e7929541eC2318f3dCF7e)
+ * - [__View Contract on Base Basescan__](https://basescan.org/address/0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913)
+ * - [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x036CbD53842c5426634e7929541eC2318f3dCF7e)
  */
 export const useWriteUsdcTokenContractApprove =
   /*#__PURE__*/ createUseWriteContract({
@@ -709,7 +729,8 @@ export const useWriteUsdcTokenContractApprove =
 /**
  * Wraps __{@link useWriteContract}__ with `abi` set to __{@link usdcTokenContractAbi}__ and `functionName` set to `"transfer"`
  *
- * [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x036CbD53842c5426634e7929541eC2318f3dCF7e)
+ * - [__View Contract on Base Basescan__](https://basescan.org/address/0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913)
+ * - [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x036CbD53842c5426634e7929541eC2318f3dCF7e)
  */
 export const useWriteUsdcTokenContractTransfer =
   /*#__PURE__*/ createUseWriteContract({
@@ -721,7 +742,8 @@ export const useWriteUsdcTokenContractTransfer =
 /**
  * Wraps __{@link useWriteContract}__ with `abi` set to __{@link usdcTokenContractAbi}__ and `functionName` set to `"transferFrom"`
  *
- * [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x036CbD53842c5426634e7929541eC2318f3dCF7e)
+ * - [__View Contract on Base Basescan__](https://basescan.org/address/0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913)
+ * - [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x036CbD53842c5426634e7929541eC2318f3dCF7e)
  */
 export const useWriteUsdcTokenContractTransferFrom =
   /*#__PURE__*/ createUseWriteContract({
@@ -733,7 +755,8 @@ export const useWriteUsdcTokenContractTransferFrom =
 /**
  * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link usdcTokenContractAbi}__
  *
- * [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x036CbD53842c5426634e7929541eC2318f3dCF7e)
+ * - [__View Contract on Base Basescan__](https://basescan.org/address/0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913)
+ * - [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x036CbD53842c5426634e7929541eC2318f3dCF7e)
  */
 export const useSimulateUsdcTokenContract =
   /*#__PURE__*/ createUseSimulateContract({
@@ -744,7 +767,8 @@ export const useSimulateUsdcTokenContract =
 /**
  * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link usdcTokenContractAbi}__ and `functionName` set to `"approve"`
  *
- * [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x036CbD53842c5426634e7929541eC2318f3dCF7e)
+ * - [__View Contract on Base Basescan__](https://basescan.org/address/0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913)
+ * - [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x036CbD53842c5426634e7929541eC2318f3dCF7e)
  */
 export const useSimulateUsdcTokenContractApprove =
   /*#__PURE__*/ createUseSimulateContract({
@@ -756,7 +780,8 @@ export const useSimulateUsdcTokenContractApprove =
 /**
  * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link usdcTokenContractAbi}__ and `functionName` set to `"transfer"`
  *
- * [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x036CbD53842c5426634e7929541eC2318f3dCF7e)
+ * - [__View Contract on Base Basescan__](https://basescan.org/address/0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913)
+ * - [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x036CbD53842c5426634e7929541eC2318f3dCF7e)
  */
 export const useSimulateUsdcTokenContractTransfer =
   /*#__PURE__*/ createUseSimulateContract({
@@ -768,7 +793,8 @@ export const useSimulateUsdcTokenContractTransfer =
 /**
  * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link usdcTokenContractAbi}__ and `functionName` set to `"transferFrom"`
  *
- * [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x036CbD53842c5426634e7929541eC2318f3dCF7e)
+ * - [__View Contract on Base Basescan__](https://basescan.org/address/0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913)
+ * - [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x036CbD53842c5426634e7929541eC2318f3dCF7e)
  */
 export const useSimulateUsdcTokenContractTransferFrom =
   /*#__PURE__*/ createUseSimulateContract({
@@ -780,7 +806,8 @@ export const useSimulateUsdcTokenContractTransferFrom =
 /**
  * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link usdcTokenContractAbi}__
  *
- * [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x036CbD53842c5426634e7929541eC2318f3dCF7e)
+ * - [__View Contract on Base Basescan__](https://basescan.org/address/0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913)
+ * - [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x036CbD53842c5426634e7929541eC2318f3dCF7e)
  */
 export const useWatchUsdcTokenContractEvent =
   /*#__PURE__*/ createUseWatchContractEvent({
@@ -791,7 +818,8 @@ export const useWatchUsdcTokenContractEvent =
 /**
  * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link usdcTokenContractAbi}__ and `eventName` set to `"Approval"`
  *
- * [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x036CbD53842c5426634e7929541eC2318f3dCF7e)
+ * - [__View Contract on Base Basescan__](https://basescan.org/address/0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913)
+ * - [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x036CbD53842c5426634e7929541eC2318f3dCF7e)
  */
 export const useWatchUsdcTokenContractApprovalEvent =
   /*#__PURE__*/ createUseWatchContractEvent({
@@ -803,7 +831,8 @@ export const useWatchUsdcTokenContractApprovalEvent =
 /**
  * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link usdcTokenContractAbi}__ and `eventName` set to `"Transfer"`
  *
- * [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x036CbD53842c5426634e7929541eC2318f3dCF7e)
+ * - [__View Contract on Base Basescan__](https://basescan.org/address/0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913)
+ * - [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x036CbD53842c5426634e7929541eC2318f3dCF7e)
  */
 export const useWatchUsdcTokenContractTransferEvent =
   /*#__PURE__*/ createUseWatchContractEvent({
@@ -815,7 +844,8 @@ export const useWatchUsdcTokenContractTransferEvent =
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link gigaBrainPassAbi}__
  *
- * [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x841ef521c0509e3cf26629650472e0f82920953b)
+ * - [__View Contract on Base Basescan__](https://basescan.org/address/0xe9e98a29bc63a8c7e35bfbbc858468342aad7b24)
+ * - [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x841ef521c0509e3cf26629650472e0f82920953b)
  */
 export const useReadGigaBrainPass = /*#__PURE__*/ createUseReadContract({
   abi: gigaBrainPassAbi,
@@ -825,7 +855,8 @@ export const useReadGigaBrainPass = /*#__PURE__*/ createUseReadContract({
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link gigaBrainPassAbi}__ and `functionName` set to `"balanceOf"`
  *
- * [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x841ef521c0509e3cf26629650472e0f82920953b)
+ * - [__View Contract on Base Basescan__](https://basescan.org/address/0xe9e98a29bc63a8c7e35bfbbc858468342aad7b24)
+ * - [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x841ef521c0509e3cf26629650472e0f82920953b)
  */
 export const useReadGigaBrainPassBalanceOf =
   /*#__PURE__*/ createUseReadContract({
@@ -837,7 +868,8 @@ export const useReadGigaBrainPassBalanceOf =
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link gigaBrainPassAbi}__ and `functionName` set to `"getApproved"`
  *
- * [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x841ef521c0509e3cf26629650472e0f82920953b)
+ * - [__View Contract on Base Basescan__](https://basescan.org/address/0xe9e98a29bc63a8c7e35bfbbc858468342aad7b24)
+ * - [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x841ef521c0509e3cf26629650472e0f82920953b)
  */
 export const useReadGigaBrainPassGetApproved =
   /*#__PURE__*/ createUseReadContract({
@@ -849,7 +881,8 @@ export const useReadGigaBrainPassGetApproved =
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link gigaBrainPassAbi}__ and `functionName` set to `"getUserTokenIds"`
  *
- * [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x841ef521c0509e3cf26629650472e0f82920953b)
+ * - [__View Contract on Base Basescan__](https://basescan.org/address/0xe9e98a29bc63a8c7e35bfbbc858468342aad7b24)
+ * - [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x841ef521c0509e3cf26629650472e0f82920953b)
  */
 export const useReadGigaBrainPassGetUserTokenIds =
   /*#__PURE__*/ createUseReadContract({
@@ -861,7 +894,8 @@ export const useReadGigaBrainPassGetUserTokenIds =
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link gigaBrainPassAbi}__ and `functionName` set to `"isApprovedForAll"`
  *
- * [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x841ef521c0509e3cf26629650472e0f82920953b)
+ * - [__View Contract on Base Basescan__](https://basescan.org/address/0xe9e98a29bc63a8c7e35bfbbc858468342aad7b24)
+ * - [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x841ef521c0509e3cf26629650472e0f82920953b)
  */
 export const useReadGigaBrainPassIsApprovedForAll =
   /*#__PURE__*/ createUseReadContract({
@@ -873,7 +907,8 @@ export const useReadGigaBrainPassIsApprovedForAll =
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link gigaBrainPassAbi}__ and `functionName` set to `"isPassValid"`
  *
- * [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x841ef521c0509e3cf26629650472e0f82920953b)
+ * - [__View Contract on Base Basescan__](https://basescan.org/address/0xe9e98a29bc63a8c7e35bfbbc858468342aad7b24)
+ * - [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x841ef521c0509e3cf26629650472e0f82920953b)
  */
 export const useReadGigaBrainPassIsPassValid =
   /*#__PURE__*/ createUseReadContract({
@@ -885,7 +920,8 @@ export const useReadGigaBrainPassIsPassValid =
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link gigaBrainPassAbi}__ and `functionName` set to `"isUserActive"`
  *
- * [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x841ef521c0509e3cf26629650472e0f82920953b)
+ * - [__View Contract on Base Basescan__](https://basescan.org/address/0xe9e98a29bc63a8c7e35bfbbc858468342aad7b24)
+ * - [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x841ef521c0509e3cf26629650472e0f82920953b)
  */
 export const useReadGigaBrainPassIsUserActive =
   /*#__PURE__*/ createUseReadContract({
@@ -897,7 +933,8 @@ export const useReadGigaBrainPassIsUserActive =
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link gigaBrainPassAbi}__ and `functionName` set to `"maxSupply"`
  *
- * [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x841ef521c0509e3cf26629650472e0f82920953b)
+ * - [__View Contract on Base Basescan__](https://basescan.org/address/0xe9e98a29bc63a8c7e35bfbbc858468342aad7b24)
+ * - [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x841ef521c0509e3cf26629650472e0f82920953b)
  */
 export const useReadGigaBrainPassMaxSupply =
   /*#__PURE__*/ createUseReadContract({
@@ -909,7 +946,8 @@ export const useReadGigaBrainPassMaxSupply =
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link gigaBrainPassAbi}__ and `functionName` set to `"name"`
  *
- * [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x841ef521c0509e3cf26629650472e0f82920953b)
+ * - [__View Contract on Base Basescan__](https://basescan.org/address/0xe9e98a29bc63a8c7e35bfbbc858468342aad7b24)
+ * - [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x841ef521c0509e3cf26629650472e0f82920953b)
  */
 export const useReadGigaBrainPassName = /*#__PURE__*/ createUseReadContract({
   abi: gigaBrainPassAbi,
@@ -920,7 +958,8 @@ export const useReadGigaBrainPassName = /*#__PURE__*/ createUseReadContract({
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link gigaBrainPassAbi}__ and `functionName` set to `"owner"`
  *
- * [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x841ef521c0509e3cf26629650472e0f82920953b)
+ * - [__View Contract on Base Basescan__](https://basescan.org/address/0xe9e98a29bc63a8c7e35bfbbc858468342aad7b24)
+ * - [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x841ef521c0509e3cf26629650472e0f82920953b)
  */
 export const useReadGigaBrainPassOwner = /*#__PURE__*/ createUseReadContract({
   abi: gigaBrainPassAbi,
@@ -931,7 +970,8 @@ export const useReadGigaBrainPassOwner = /*#__PURE__*/ createUseReadContract({
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link gigaBrainPassAbi}__ and `functionName` set to `"ownerOf"`
  *
- * [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x841ef521c0509e3cf26629650472e0f82920953b)
+ * - [__View Contract on Base Basescan__](https://basescan.org/address/0xe9e98a29bc63a8c7e35bfbbc858468342aad7b24)
+ * - [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x841ef521c0509e3cf26629650472e0f82920953b)
  */
 export const useReadGigaBrainPassOwnerOf = /*#__PURE__*/ createUseReadContract({
   abi: gigaBrainPassAbi,
@@ -942,7 +982,8 @@ export const useReadGigaBrainPassOwnerOf = /*#__PURE__*/ createUseReadContract({
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link gigaBrainPassAbi}__ and `functionName` set to `"passCost"`
  *
- * [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x841ef521c0509e3cf26629650472e0f82920953b)
+ * - [__View Contract on Base Basescan__](https://basescan.org/address/0xe9e98a29bc63a8c7e35bfbbc858468342aad7b24)
+ * - [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x841ef521c0509e3cf26629650472e0f82920953b)
  */
 export const useReadGigaBrainPassPassCost = /*#__PURE__*/ createUseReadContract(
   {
@@ -955,7 +996,8 @@ export const useReadGigaBrainPassPassCost = /*#__PURE__*/ createUseReadContract(
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link gigaBrainPassAbi}__ and `functionName` set to `"passDuration"`
  *
- * [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x841ef521c0509e3cf26629650472e0f82920953b)
+ * - [__View Contract on Base Basescan__](https://basescan.org/address/0xe9e98a29bc63a8c7e35bfbbc858468342aad7b24)
+ * - [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x841ef521c0509e3cf26629650472e0f82920953b)
  */
 export const useReadGigaBrainPassPassDuration =
   /*#__PURE__*/ createUseReadContract({
@@ -967,7 +1009,8 @@ export const useReadGigaBrainPassPassDuration =
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link gigaBrainPassAbi}__ and `functionName` set to `"passExpiry"`
  *
- * [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x841ef521c0509e3cf26629650472e0f82920953b)
+ * - [__View Contract on Base Basescan__](https://basescan.org/address/0xe9e98a29bc63a8c7e35bfbbc858468342aad7b24)
+ * - [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x841ef521c0509e3cf26629650472e0f82920953b)
  */
 export const useReadGigaBrainPassPassExpiry =
   /*#__PURE__*/ createUseReadContract({
@@ -979,7 +1022,8 @@ export const useReadGigaBrainPassPassExpiry =
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link gigaBrainPassAbi}__ and `functionName` set to `"supportsInterface"`
  *
- * [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x841ef521c0509e3cf26629650472e0f82920953b)
+ * - [__View Contract on Base Basescan__](https://basescan.org/address/0xe9e98a29bc63a8c7e35bfbbc858468342aad7b24)
+ * - [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x841ef521c0509e3cf26629650472e0f82920953b)
  */
 export const useReadGigaBrainPassSupportsInterface =
   /*#__PURE__*/ createUseReadContract({
@@ -991,7 +1035,8 @@ export const useReadGigaBrainPassSupportsInterface =
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link gigaBrainPassAbi}__ and `functionName` set to `"symbol"`
  *
- * [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x841ef521c0509e3cf26629650472e0f82920953b)
+ * - [__View Contract on Base Basescan__](https://basescan.org/address/0xe9e98a29bc63a8c7e35bfbbc858468342aad7b24)
+ * - [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x841ef521c0509e3cf26629650472e0f82920953b)
  */
 export const useReadGigaBrainPassSymbol = /*#__PURE__*/ createUseReadContract({
   abi: gigaBrainPassAbi,
@@ -1002,7 +1047,8 @@ export const useReadGigaBrainPassSymbol = /*#__PURE__*/ createUseReadContract({
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link gigaBrainPassAbi}__ and `functionName` set to `"tokenURI"`
  *
- * [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x841ef521c0509e3cf26629650472e0f82920953b)
+ * - [__View Contract on Base Basescan__](https://basescan.org/address/0xe9e98a29bc63a8c7e35bfbbc858468342aad7b24)
+ * - [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x841ef521c0509e3cf26629650472e0f82920953b)
  */
 export const useReadGigaBrainPassTokenUri = /*#__PURE__*/ createUseReadContract(
   {
@@ -1015,7 +1061,8 @@ export const useReadGigaBrainPassTokenUri = /*#__PURE__*/ createUseReadContract(
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link gigaBrainPassAbi}__ and `functionName` set to `"totalSupply"`
  *
- * [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x841ef521c0509e3cf26629650472e0f82920953b)
+ * - [__View Contract on Base Basescan__](https://basescan.org/address/0xe9e98a29bc63a8c7e35bfbbc858468342aad7b24)
+ * - [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x841ef521c0509e3cf26629650472e0f82920953b)
  */
 export const useReadGigaBrainPassTotalSupply =
   /*#__PURE__*/ createUseReadContract({
@@ -1027,7 +1074,8 @@ export const useReadGigaBrainPassTotalSupply =
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link gigaBrainPassAbi}__ and `functionName` set to `"usdcToken"`
  *
- * [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x841ef521c0509e3cf26629650472e0f82920953b)
+ * - [__View Contract on Base Basescan__](https://basescan.org/address/0xe9e98a29bc63a8c7e35bfbbc858468342aad7b24)
+ * - [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x841ef521c0509e3cf26629650472e0f82920953b)
  */
 export const useReadGigaBrainPassUsdcToken =
   /*#__PURE__*/ createUseReadContract({
@@ -1039,7 +1087,8 @@ export const useReadGigaBrainPassUsdcToken =
 /**
  * Wraps __{@link useWriteContract}__ with `abi` set to __{@link gigaBrainPassAbi}__
  *
- * [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x841ef521c0509e3cf26629650472e0f82920953b)
+ * - [__View Contract on Base Basescan__](https://basescan.org/address/0xe9e98a29bc63a8c7e35bfbbc858468342aad7b24)
+ * - [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x841ef521c0509e3cf26629650472e0f82920953b)
  */
 export const useWriteGigaBrainPass = /*#__PURE__*/ createUseWriteContract({
   abi: gigaBrainPassAbi,
@@ -1049,7 +1098,8 @@ export const useWriteGigaBrainPass = /*#__PURE__*/ createUseWriteContract({
 /**
  * Wraps __{@link useWriteContract}__ with `abi` set to __{@link gigaBrainPassAbi}__ and `functionName` set to `"adminMint"`
  *
- * [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x841ef521c0509e3cf26629650472e0f82920953b)
+ * - [__View Contract on Base Basescan__](https://basescan.org/address/0xe9e98a29bc63a8c7e35bfbbc858468342aad7b24)
+ * - [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x841ef521c0509e3cf26629650472e0f82920953b)
  */
 export const useWriteGigaBrainPassAdminMint =
   /*#__PURE__*/ createUseWriteContract({
@@ -1061,7 +1111,8 @@ export const useWriteGigaBrainPassAdminMint =
 /**
  * Wraps __{@link useWriteContract}__ with `abi` set to __{@link gigaBrainPassAbi}__ and `functionName` set to `"approve"`
  *
- * [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x841ef521c0509e3cf26629650472e0f82920953b)
+ * - [__View Contract on Base Basescan__](https://basescan.org/address/0xe9e98a29bc63a8c7e35bfbbc858468342aad7b24)
+ * - [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x841ef521c0509e3cf26629650472e0f82920953b)
  */
 export const useWriteGigaBrainPassApprove =
   /*#__PURE__*/ createUseWriteContract({
@@ -1073,7 +1124,8 @@ export const useWriteGigaBrainPassApprove =
 /**
  * Wraps __{@link useWriteContract}__ with `abi` set to __{@link gigaBrainPassAbi}__ and `functionName` set to `"mintPass"`
  *
- * [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x841ef521c0509e3cf26629650472e0f82920953b)
+ * - [__View Contract on Base Basescan__](https://basescan.org/address/0xe9e98a29bc63a8c7e35bfbbc858468342aad7b24)
+ * - [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x841ef521c0509e3cf26629650472e0f82920953b)
  */
 export const useWriteGigaBrainPassMintPass =
   /*#__PURE__*/ createUseWriteContract({
@@ -1085,7 +1137,8 @@ export const useWriteGigaBrainPassMintPass =
 /**
  * Wraps __{@link useWriteContract}__ with `abi` set to __{@link gigaBrainPassAbi}__ and `functionName` set to `"renounceOwnership"`
  *
- * [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x841ef521c0509e3cf26629650472e0f82920953b)
+ * - [__View Contract on Base Basescan__](https://basescan.org/address/0xe9e98a29bc63a8c7e35bfbbc858468342aad7b24)
+ * - [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x841ef521c0509e3cf26629650472e0f82920953b)
  */
 export const useWriteGigaBrainPassRenounceOwnership =
   /*#__PURE__*/ createUseWriteContract({
@@ -1097,7 +1150,8 @@ export const useWriteGigaBrainPassRenounceOwnership =
 /**
  * Wraps __{@link useWriteContract}__ with `abi` set to __{@link gigaBrainPassAbi}__ and `functionName` set to `"safeTransferFrom"`
  *
- * [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x841ef521c0509e3cf26629650472e0f82920953b)
+ * - [__View Contract on Base Basescan__](https://basescan.org/address/0xe9e98a29bc63a8c7e35bfbbc858468342aad7b24)
+ * - [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x841ef521c0509e3cf26629650472e0f82920953b)
  */
 export const useWriteGigaBrainPassSafeTransferFrom =
   /*#__PURE__*/ createUseWriteContract({
@@ -1109,7 +1163,8 @@ export const useWriteGigaBrainPassSafeTransferFrom =
 /**
  * Wraps __{@link useWriteContract}__ with `abi` set to __{@link gigaBrainPassAbi}__ and `functionName` set to `"setApprovalForAll"`
  *
- * [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x841ef521c0509e3cf26629650472e0f82920953b)
+ * - [__View Contract on Base Basescan__](https://basescan.org/address/0xe9e98a29bc63a8c7e35bfbbc858468342aad7b24)
+ * - [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x841ef521c0509e3cf26629650472e0f82920953b)
  */
 export const useWriteGigaBrainPassSetApprovalForAll =
   /*#__PURE__*/ createUseWriteContract({
@@ -1121,7 +1176,8 @@ export const useWriteGigaBrainPassSetApprovalForAll =
 /**
  * Wraps __{@link useWriteContract}__ with `abi` set to __{@link gigaBrainPassAbi}__ and `functionName` set to `"setBaseURI"`
  *
- * [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x841ef521c0509e3cf26629650472e0f82920953b)
+ * - [__View Contract on Base Basescan__](https://basescan.org/address/0xe9e98a29bc63a8c7e35bfbbc858468342aad7b24)
+ * - [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x841ef521c0509e3cf26629650472e0f82920953b)
  */
 export const useWriteGigaBrainPassSetBaseUri =
   /*#__PURE__*/ createUseWriteContract({
@@ -1133,7 +1189,8 @@ export const useWriteGigaBrainPassSetBaseUri =
 /**
  * Wraps __{@link useWriteContract}__ with `abi` set to __{@link gigaBrainPassAbi}__ and `functionName` set to `"setMaxSupply"`
  *
- * [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x841ef521c0509e3cf26629650472e0f82920953b)
+ * - [__View Contract on Base Basescan__](https://basescan.org/address/0xe9e98a29bc63a8c7e35bfbbc858468342aad7b24)
+ * - [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x841ef521c0509e3cf26629650472e0f82920953b)
  */
 export const useWriteGigaBrainPassSetMaxSupply =
   /*#__PURE__*/ createUseWriteContract({
@@ -1145,7 +1202,8 @@ export const useWriteGigaBrainPassSetMaxSupply =
 /**
  * Wraps __{@link useWriteContract}__ with `abi` set to __{@link gigaBrainPassAbi}__ and `functionName` set to `"setPassCost"`
  *
- * [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x841ef521c0509e3cf26629650472e0f82920953b)
+ * - [__View Contract on Base Basescan__](https://basescan.org/address/0xe9e98a29bc63a8c7e35bfbbc858468342aad7b24)
+ * - [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x841ef521c0509e3cf26629650472e0f82920953b)
  */
 export const useWriteGigaBrainPassSetPassCost =
   /*#__PURE__*/ createUseWriteContract({
@@ -1157,7 +1215,8 @@ export const useWriteGigaBrainPassSetPassCost =
 /**
  * Wraps __{@link useWriteContract}__ with `abi` set to __{@link gigaBrainPassAbi}__ and `functionName` set to `"setPassDuration"`
  *
- * [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x841ef521c0509e3cf26629650472e0f82920953b)
+ * - [__View Contract on Base Basescan__](https://basescan.org/address/0xe9e98a29bc63a8c7e35bfbbc858468342aad7b24)
+ * - [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x841ef521c0509e3cf26629650472e0f82920953b)
  */
 export const useWriteGigaBrainPassSetPassDuration =
   /*#__PURE__*/ createUseWriteContract({
@@ -1169,7 +1228,8 @@ export const useWriteGigaBrainPassSetPassDuration =
 /**
  * Wraps __{@link useWriteContract}__ with `abi` set to __{@link gigaBrainPassAbi}__ and `functionName` set to `"transferFrom"`
  *
- * [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x841ef521c0509e3cf26629650472e0f82920953b)
+ * - [__View Contract on Base Basescan__](https://basescan.org/address/0xe9e98a29bc63a8c7e35bfbbc858468342aad7b24)
+ * - [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x841ef521c0509e3cf26629650472e0f82920953b)
  */
 export const useWriteGigaBrainPassTransferFrom =
   /*#__PURE__*/ createUseWriteContract({
@@ -1181,7 +1241,8 @@ export const useWriteGigaBrainPassTransferFrom =
 /**
  * Wraps __{@link useWriteContract}__ with `abi` set to __{@link gigaBrainPassAbi}__ and `functionName` set to `"transferOwnership"`
  *
- * [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x841ef521c0509e3cf26629650472e0f82920953b)
+ * - [__View Contract on Base Basescan__](https://basescan.org/address/0xe9e98a29bc63a8c7e35bfbbc858468342aad7b24)
+ * - [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x841ef521c0509e3cf26629650472e0f82920953b)
  */
 export const useWriteGigaBrainPassTransferOwnership =
   /*#__PURE__*/ createUseWriteContract({
@@ -1193,7 +1254,8 @@ export const useWriteGigaBrainPassTransferOwnership =
 /**
  * Wraps __{@link useWriteContract}__ with `abi` set to __{@link gigaBrainPassAbi}__ and `functionName` set to `"withdrawUSDC"`
  *
- * [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x841ef521c0509e3cf26629650472e0f82920953b)
+ * - [__View Contract on Base Basescan__](https://basescan.org/address/0xe9e98a29bc63a8c7e35bfbbc858468342aad7b24)
+ * - [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x841ef521c0509e3cf26629650472e0f82920953b)
  */
 export const useWriteGigaBrainPassWithdrawUsdc =
   /*#__PURE__*/ createUseWriteContract({
@@ -1205,7 +1267,8 @@ export const useWriteGigaBrainPassWithdrawUsdc =
 /**
  * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link gigaBrainPassAbi}__
  *
- * [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x841ef521c0509e3cf26629650472e0f82920953b)
+ * - [__View Contract on Base Basescan__](https://basescan.org/address/0xe9e98a29bc63a8c7e35bfbbc858468342aad7b24)
+ * - [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x841ef521c0509e3cf26629650472e0f82920953b)
  */
 export const useSimulateGigaBrainPass = /*#__PURE__*/ createUseSimulateContract(
   { abi: gigaBrainPassAbi, address: gigaBrainPassAddress },
@@ -1214,7 +1277,8 @@ export const useSimulateGigaBrainPass = /*#__PURE__*/ createUseSimulateContract(
 /**
  * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link gigaBrainPassAbi}__ and `functionName` set to `"adminMint"`
  *
- * [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x841ef521c0509e3cf26629650472e0f82920953b)
+ * - [__View Contract on Base Basescan__](https://basescan.org/address/0xe9e98a29bc63a8c7e35bfbbc858468342aad7b24)
+ * - [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x841ef521c0509e3cf26629650472e0f82920953b)
  */
 export const useSimulateGigaBrainPassAdminMint =
   /*#__PURE__*/ createUseSimulateContract({
@@ -1226,7 +1290,8 @@ export const useSimulateGigaBrainPassAdminMint =
 /**
  * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link gigaBrainPassAbi}__ and `functionName` set to `"approve"`
  *
- * [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x841ef521c0509e3cf26629650472e0f82920953b)
+ * - [__View Contract on Base Basescan__](https://basescan.org/address/0xe9e98a29bc63a8c7e35bfbbc858468342aad7b24)
+ * - [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x841ef521c0509e3cf26629650472e0f82920953b)
  */
 export const useSimulateGigaBrainPassApprove =
   /*#__PURE__*/ createUseSimulateContract({
@@ -1238,7 +1303,8 @@ export const useSimulateGigaBrainPassApprove =
 /**
  * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link gigaBrainPassAbi}__ and `functionName` set to `"mintPass"`
  *
- * [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x841ef521c0509e3cf26629650472e0f82920953b)
+ * - [__View Contract on Base Basescan__](https://basescan.org/address/0xe9e98a29bc63a8c7e35bfbbc858468342aad7b24)
+ * - [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x841ef521c0509e3cf26629650472e0f82920953b)
  */
 export const useSimulateGigaBrainPassMintPass =
   /*#__PURE__*/ createUseSimulateContract({
@@ -1250,7 +1316,8 @@ export const useSimulateGigaBrainPassMintPass =
 /**
  * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link gigaBrainPassAbi}__ and `functionName` set to `"renounceOwnership"`
  *
- * [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x841ef521c0509e3cf26629650472e0f82920953b)
+ * - [__View Contract on Base Basescan__](https://basescan.org/address/0xe9e98a29bc63a8c7e35bfbbc858468342aad7b24)
+ * - [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x841ef521c0509e3cf26629650472e0f82920953b)
  */
 export const useSimulateGigaBrainPassRenounceOwnership =
   /*#__PURE__*/ createUseSimulateContract({
@@ -1262,7 +1329,8 @@ export const useSimulateGigaBrainPassRenounceOwnership =
 /**
  * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link gigaBrainPassAbi}__ and `functionName` set to `"safeTransferFrom"`
  *
- * [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x841ef521c0509e3cf26629650472e0f82920953b)
+ * - [__View Contract on Base Basescan__](https://basescan.org/address/0xe9e98a29bc63a8c7e35bfbbc858468342aad7b24)
+ * - [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x841ef521c0509e3cf26629650472e0f82920953b)
  */
 export const useSimulateGigaBrainPassSafeTransferFrom =
   /*#__PURE__*/ createUseSimulateContract({
@@ -1274,7 +1342,8 @@ export const useSimulateGigaBrainPassSafeTransferFrom =
 /**
  * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link gigaBrainPassAbi}__ and `functionName` set to `"setApprovalForAll"`
  *
- * [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x841ef521c0509e3cf26629650472e0f82920953b)
+ * - [__View Contract on Base Basescan__](https://basescan.org/address/0xe9e98a29bc63a8c7e35bfbbc858468342aad7b24)
+ * - [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x841ef521c0509e3cf26629650472e0f82920953b)
  */
 export const useSimulateGigaBrainPassSetApprovalForAll =
   /*#__PURE__*/ createUseSimulateContract({
@@ -1286,7 +1355,8 @@ export const useSimulateGigaBrainPassSetApprovalForAll =
 /**
  * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link gigaBrainPassAbi}__ and `functionName` set to `"setBaseURI"`
  *
- * [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x841ef521c0509e3cf26629650472e0f82920953b)
+ * - [__View Contract on Base Basescan__](https://basescan.org/address/0xe9e98a29bc63a8c7e35bfbbc858468342aad7b24)
+ * - [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x841ef521c0509e3cf26629650472e0f82920953b)
  */
 export const useSimulateGigaBrainPassSetBaseUri =
   /*#__PURE__*/ createUseSimulateContract({
@@ -1298,7 +1368,8 @@ export const useSimulateGigaBrainPassSetBaseUri =
 /**
  * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link gigaBrainPassAbi}__ and `functionName` set to `"setMaxSupply"`
  *
- * [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x841ef521c0509e3cf26629650472e0f82920953b)
+ * - [__View Contract on Base Basescan__](https://basescan.org/address/0xe9e98a29bc63a8c7e35bfbbc858468342aad7b24)
+ * - [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x841ef521c0509e3cf26629650472e0f82920953b)
  */
 export const useSimulateGigaBrainPassSetMaxSupply =
   /*#__PURE__*/ createUseSimulateContract({
@@ -1310,7 +1381,8 @@ export const useSimulateGigaBrainPassSetMaxSupply =
 /**
  * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link gigaBrainPassAbi}__ and `functionName` set to `"setPassCost"`
  *
- * [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x841ef521c0509e3cf26629650472e0f82920953b)
+ * - [__View Contract on Base Basescan__](https://basescan.org/address/0xe9e98a29bc63a8c7e35bfbbc858468342aad7b24)
+ * - [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x841ef521c0509e3cf26629650472e0f82920953b)
  */
 export const useSimulateGigaBrainPassSetPassCost =
   /*#__PURE__*/ createUseSimulateContract({
@@ -1322,7 +1394,8 @@ export const useSimulateGigaBrainPassSetPassCost =
 /**
  * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link gigaBrainPassAbi}__ and `functionName` set to `"setPassDuration"`
  *
- * [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x841ef521c0509e3cf26629650472e0f82920953b)
+ * - [__View Contract on Base Basescan__](https://basescan.org/address/0xe9e98a29bc63a8c7e35bfbbc858468342aad7b24)
+ * - [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x841ef521c0509e3cf26629650472e0f82920953b)
  */
 export const useSimulateGigaBrainPassSetPassDuration =
   /*#__PURE__*/ createUseSimulateContract({
@@ -1334,7 +1407,8 @@ export const useSimulateGigaBrainPassSetPassDuration =
 /**
  * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link gigaBrainPassAbi}__ and `functionName` set to `"transferFrom"`
  *
- * [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x841ef521c0509e3cf26629650472e0f82920953b)
+ * - [__View Contract on Base Basescan__](https://basescan.org/address/0xe9e98a29bc63a8c7e35bfbbc858468342aad7b24)
+ * - [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x841ef521c0509e3cf26629650472e0f82920953b)
  */
 export const useSimulateGigaBrainPassTransferFrom =
   /*#__PURE__*/ createUseSimulateContract({
@@ -1346,7 +1420,8 @@ export const useSimulateGigaBrainPassTransferFrom =
 /**
  * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link gigaBrainPassAbi}__ and `functionName` set to `"transferOwnership"`
  *
- * [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x841ef521c0509e3cf26629650472e0f82920953b)
+ * - [__View Contract on Base Basescan__](https://basescan.org/address/0xe9e98a29bc63a8c7e35bfbbc858468342aad7b24)
+ * - [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x841ef521c0509e3cf26629650472e0f82920953b)
  */
 export const useSimulateGigaBrainPassTransferOwnership =
   /*#__PURE__*/ createUseSimulateContract({
@@ -1358,7 +1433,8 @@ export const useSimulateGigaBrainPassTransferOwnership =
 /**
  * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link gigaBrainPassAbi}__ and `functionName` set to `"withdrawUSDC"`
  *
- * [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x841ef521c0509e3cf26629650472e0f82920953b)
+ * - [__View Contract on Base Basescan__](https://basescan.org/address/0xe9e98a29bc63a8c7e35bfbbc858468342aad7b24)
+ * - [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x841ef521c0509e3cf26629650472e0f82920953b)
  */
 export const useSimulateGigaBrainPassWithdrawUsdc =
   /*#__PURE__*/ createUseSimulateContract({
@@ -1370,7 +1446,8 @@ export const useSimulateGigaBrainPassWithdrawUsdc =
 /**
  * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link gigaBrainPassAbi}__
  *
- * [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x841ef521c0509e3cf26629650472e0f82920953b)
+ * - [__View Contract on Base Basescan__](https://basescan.org/address/0xe9e98a29bc63a8c7e35bfbbc858468342aad7b24)
+ * - [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x841ef521c0509e3cf26629650472e0f82920953b)
  */
 export const useWatchGigaBrainPassEvent =
   /*#__PURE__*/ createUseWatchContractEvent({
@@ -1381,7 +1458,8 @@ export const useWatchGigaBrainPassEvent =
 /**
  * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link gigaBrainPassAbi}__ and `eventName` set to `"Approval"`
  *
- * [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x841ef521c0509e3cf26629650472e0f82920953b)
+ * - [__View Contract on Base Basescan__](https://basescan.org/address/0xe9e98a29bc63a8c7e35bfbbc858468342aad7b24)
+ * - [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x841ef521c0509e3cf26629650472e0f82920953b)
  */
 export const useWatchGigaBrainPassApprovalEvent =
   /*#__PURE__*/ createUseWatchContractEvent({
@@ -1393,7 +1471,8 @@ export const useWatchGigaBrainPassApprovalEvent =
 /**
  * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link gigaBrainPassAbi}__ and `eventName` set to `"ApprovalForAll"`
  *
- * [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x841ef521c0509e3cf26629650472e0f82920953b)
+ * - [__View Contract on Base Basescan__](https://basescan.org/address/0xe9e98a29bc63a8c7e35bfbbc858468342aad7b24)
+ * - [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x841ef521c0509e3cf26629650472e0f82920953b)
  */
 export const useWatchGigaBrainPassApprovalForAllEvent =
   /*#__PURE__*/ createUseWatchContractEvent({
@@ -1405,7 +1484,8 @@ export const useWatchGigaBrainPassApprovalForAllEvent =
 /**
  * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link gigaBrainPassAbi}__ and `eventName` set to `"MaxSupplyUpdated"`
  *
- * [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x841ef521c0509e3cf26629650472e0f82920953b)
+ * - [__View Contract on Base Basescan__](https://basescan.org/address/0xe9e98a29bc63a8c7e35bfbbc858468342aad7b24)
+ * - [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x841ef521c0509e3cf26629650472e0f82920953b)
  */
 export const useWatchGigaBrainPassMaxSupplyUpdatedEvent =
   /*#__PURE__*/ createUseWatchContractEvent({
@@ -1417,7 +1497,8 @@ export const useWatchGigaBrainPassMaxSupplyUpdatedEvent =
 /**
  * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link gigaBrainPassAbi}__ and `eventName` set to `"OwnershipTransferred"`
  *
- * [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x841ef521c0509e3cf26629650472e0f82920953b)
+ * - [__View Contract on Base Basescan__](https://basescan.org/address/0xe9e98a29bc63a8c7e35bfbbc858468342aad7b24)
+ * - [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x841ef521c0509e3cf26629650472e0f82920953b)
  */
 export const useWatchGigaBrainPassOwnershipTransferredEvent =
   /*#__PURE__*/ createUseWatchContractEvent({
@@ -1429,7 +1510,8 @@ export const useWatchGigaBrainPassOwnershipTransferredEvent =
 /**
  * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link gigaBrainPassAbi}__ and `eventName` set to `"PassCostUpdated"`
  *
- * [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x841ef521c0509e3cf26629650472e0f82920953b)
+ * - [__View Contract on Base Basescan__](https://basescan.org/address/0xe9e98a29bc63a8c7e35bfbbc858468342aad7b24)
+ * - [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x841ef521c0509e3cf26629650472e0f82920953b)
  */
 export const useWatchGigaBrainPassPassCostUpdatedEvent =
   /*#__PURE__*/ createUseWatchContractEvent({
@@ -1441,7 +1523,8 @@ export const useWatchGigaBrainPassPassCostUpdatedEvent =
 /**
  * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link gigaBrainPassAbi}__ and `eventName` set to `"PassDurationUpdated"`
  *
- * [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x841ef521c0509e3cf26629650472e0f82920953b)
+ * - [__View Contract on Base Basescan__](https://basescan.org/address/0xe9e98a29bc63a8c7e35bfbbc858468342aad7b24)
+ * - [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x841ef521c0509e3cf26629650472e0f82920953b)
  */
 export const useWatchGigaBrainPassPassDurationUpdatedEvent =
   /*#__PURE__*/ createUseWatchContractEvent({
@@ -1453,7 +1536,8 @@ export const useWatchGigaBrainPassPassDurationUpdatedEvent =
 /**
  * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link gigaBrainPassAbi}__ and `eventName` set to `"PassMinted"`
  *
- * [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x841ef521c0509e3cf26629650472e0f82920953b)
+ * - [__View Contract on Base Basescan__](https://basescan.org/address/0xe9e98a29bc63a8c7e35bfbbc858468342aad7b24)
+ * - [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x841ef521c0509e3cf26629650472e0f82920953b)
  */
 export const useWatchGigaBrainPassPassMintedEvent =
   /*#__PURE__*/ createUseWatchContractEvent({
@@ -1465,7 +1549,8 @@ export const useWatchGigaBrainPassPassMintedEvent =
 /**
  * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link gigaBrainPassAbi}__ and `eventName` set to `"Transfer"`
  *
- * [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x841ef521c0509e3cf26629650472e0f82920953b)
+ * - [__View Contract on Base Basescan__](https://basescan.org/address/0xe9e98a29bc63a8c7e35bfbbc858468342aad7b24)
+ * - [__View Contract on Base Sepolia Basescan__](https://sepolia.basescan.org/address/0x841ef521c0509e3cf26629650472e0f82920953b)
  */
 export const useWatchGigaBrainPassTransferEvent =
   /*#__PURE__*/ createUseWatchContractEvent({

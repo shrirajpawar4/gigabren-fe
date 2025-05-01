@@ -1,10 +1,16 @@
 // app/layout.tsx
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Karla } from "next/font/google";
 import "./globals.css";
 
 import { headers } from "next/headers";
 import ContextProvider from '@/context'
+
+const karla = Karla({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-karla',
+});
 
 export const metadata: Metadata = {
   title: "AppKit Example App",
@@ -20,8 +26,8 @@ export default async function RootLayout({
   const cookies = headersList.get('cookie')
 
   return (
-    <html lang="en">
-      <body>
+    <html lang="en" className={karla.variable}>
+      <body className="font-karla">
         <ContextProvider cookies={cookies}>{children}</ContextProvider>
       </body>
     </html>

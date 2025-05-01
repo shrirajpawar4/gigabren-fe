@@ -1,13 +1,13 @@
-
 // context/index.tsx
 'use client'
 
 import { wagmiAdapter, projectId } from '@/config'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { createAppKit } from '@reown/appkit/react' 
-import { baseSepolia } from '@reown/appkit/networks'
+import { baseSepolia, base } from '@reown/appkit/networks'
 import React, { type ReactNode } from 'react'
 import { cookieToInitialState, WagmiProvider, type Config } from 'wagmi'
+import { Toaster } from 'react-hot-toast'
 
 // Set up queryClient
 const queryClient = new QueryClient()
@@ -28,7 +28,7 @@ const metadata = {
 const modal = createAppKit({
   adapters: [wagmiAdapter],
   projectId,
-  networks: [baseSepolia],
+  networks: [baseSepolia, base],
   defaultNetwork: baseSepolia,
   metadata: metadata,
   allWallets: "SHOW",
@@ -45,7 +45,31 @@ function ContextProvider({ children, cookies }: { children: ReactNode; cookies: 
 
   return (
     <WagmiProvider config={wagmiAdapter.wagmiConfig as Config} initialState={initialState}>
-      <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
+      <QueryClientProvider client={queryClient}>
+        {children}
+        <Toaster 
+          position="top-right"
+          toastOptions={{
+            duration: 3000,
+            style: {
+              background: '#333',
+              color: '#fff',
+            },
+            success: {
+              style: {
+                background: '#059669',
+                color: '#000',
+              },
+            },
+            error: {
+              style: {
+                background: '#FF4444',
+                color: '#fff',
+              },
+            },
+          }}
+        />
+      </QueryClientProvider>
     </WagmiProvider>
   )
 }

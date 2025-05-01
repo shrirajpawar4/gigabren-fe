@@ -49,19 +49,19 @@ export default function Home() {
         </div>
         <div className="flex justify-center mb-4">
           <div className="w-12 h-12">
-            <svg viewBox="0 0 24 24" className="w-full h-full text-[#00FF9D]">
+            <svg viewBox="0 0 24 24" className="w-full h-full text-emerald-600">
               <path fill="currentColor" d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
             </svg>
           </div>
         </div>
-        <h1 className="text-5xl font-bold mb-6 bg-gradient-to-r from-[#00FF9D] to-[#00CC7E] bg-clip-text text-transparent">
+        <h1 className="text-5xl font-bold mb-6 text-emerald-400">
           Select Your Access Level
         </h1>
         <p className="text-xl text-gray-400 max-w-3xl mx-auto mb-10">
           Access institutional-grade market intelligence and analytics. Choose the plan that best suits your needs.
         </p>
         
-        <div className="mb-4 text-[#00FF9D] text-lg font-mono">
+        <div className="mb-4 text-emerald-400 text-lg font-mono">
           {isSupplyLoading ? 'Loading supply...' : `Remaining Passes: ${remaining}`}
         </div>
 

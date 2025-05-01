@@ -7,6 +7,11 @@ export const GigaBrenPass = {
           "internalType": "address",
           "name": "_usdcToken",
           "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "_governance",
+          "type": "address"
         }
       ],
       "stateMutability": "nonpayable",
