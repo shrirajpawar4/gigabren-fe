@@ -1,6 +1,8 @@
 import React from 'react';
 import { useReadGigaBrainPassPassCost } from '../../src/generated/wagmiHooksGen';
 import { formatUnits } from 'viem';
+import { useAppKitAccount, useAppKit } from "@reown/appkit/react";
+import { toast } from 'react-hot-toast';
 
 interface PricingCardProps {
   title: string;
@@ -20,6 +22,17 @@ const PricingCard: React.FC<PricingCardProps> = ({
   onBuyClick
 }) => {
   const { data: passCost, isLoading } = useReadGigaBrainPassPassCost();
+  const { address } = useAppKitAccount();
+  const { open: openConnectModal } = useAppKit();
+
+  const handleBuyClick = () => {
+    if (!address) {
+      toast.error('Please connect your wallet first');
+      openConnectModal();
+      return;
+    }
+    onBuyClick();
+  };
 
   return (
     <div className="bg-[#12141A] rounded-2xl p-8 border border-gray-800 hover:border-emerald-600 transition-colors relative overflow-hidden">
@@ -38,10 +51,10 @@ const PricingCard: React.FC<PricingCardProps> = ({
             <div className="text-gray-400">{subtitle}</div>
           </div>
           <button 
-            onClick={onBuyClick}
+            onClick={handleBuyClick}
             className="w-full px-4 sm:px-6 py-3 sm:py-4 bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-400 text-gray-900 font-semibold rounded-lg hover:shadow-lg hover:shadow-amber-500/20 transition-all duration-300 text-xs sm:text-sm transform hover:scale-[1.02]"
           >
-            {buttonText}
+            {!address ? 'Connect Wallet' : buttonText}
           </button>
         </div>
         

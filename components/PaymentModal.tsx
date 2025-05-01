@@ -50,26 +50,35 @@ const PaymentModal: React.FC<PaymentModalProps> = ({ isOpen, onClose }) => {
 
   useEffect(() => {
     if (isOpen) {
-      refetchCost()
-      console.log('Connected network chainId:', chainId)
+      refetchCost();
+      refetchUsdcBalance();
+      console.log('Connected network chainId:', chainId);
     }
-  }, [isOpen, refetchCost, refetchUsdcBalance, chainId])
-
+  }, [isOpen, refetchCost, refetchUsdcBalance, chainId]);
+  
   useEffect(() => {
-    if (passCost) {
-      
-      const hasEnoughBalance = usdcBalance && usdcBalance >= passCost;
-      console.log('Has enough balance:', hasEnoughBalance);
-      
-      if (!hasEnoughBalance) {
+    if (passCost !== undefined && usdcBalance !== undefined) {
+      const formattedBalance = Number(formatUnits(usdcBalance, USDC_DECIMALS));
+      const formattedCost = Number(formatUnits(passCost, USDC_DECIMALS));
+  
+      console.log('Balance comparison:', {
+        balance: formattedBalance,
+        required: formattedCost,
+        hasEnough: formattedBalance >= formattedCost,
+      });
+  
+      if (formattedBalance < formattedCost) {
         setShowInsufficientBalance(true);
         return;
+      } else {
+        setShowInsufficientBalance(false);
       }
-
+  
       const hasEnoughAllowance = allowance && allowance >= passCost;
       setNeedsApproval(!hasEnoughAllowance);
     }
   }, [passCost, usdcBalance, allowance, chainId]);
+  
 
   useEffect(() => {
     if (isMintSuccess && txHash) {

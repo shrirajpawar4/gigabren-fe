@@ -27,14 +27,14 @@ const SuccessScreen: React.FC<SuccessScreenProps> = ({ transactionHash, onClose 
         </div>
 
         <div className="space-y-4 mb-6">
-          <div className="bg-[#1A1C23] p-4 rounded-lg">̃
+          <div className="bg-[#1A1C23] p-4 rounded-lg">
             <p className="text-sm text-gray-400 mb-1">Transaction Hash</p>
-            <p className="text-emerald-600 font-mono text-sm break-all">{transactionHash}</p>
+            <p className="text-emerald-400 font-mono text-sm break-all">{transactionHash}</p>
           </div>
           
           <div className="bg-[#1A1C23] p-4 rounded-lg">
             <p className="text-sm text-gray-400 mb-1">Your Balance</p>
-            <p className="text-emerald-600 font-mono text-sm">{balance?.toString() || '0'} Passes</p>
+            <p className="text-emerald-400 font-mono text-sm">{balance?.toString() || '0'} Passes</p>
           </div>
         </div>
 
@@ -43,7 +43,7 @@ const SuccessScreen: React.FC<SuccessScreenProps> = ({ transactionHash, onClose 
             href={`https://basescan.org/tx/${transactionHash}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full px-4 py-3 bg-[#1A1C23] text-emerald-600 rounded-lg hover:bg-[#1A1C23]/80 transition-colors text-center"
+            className="w-full px-4 py-3 bg-[#1A1C23] text-emerald-400 rounded-lg hover:bg-[#1A1C23]/80 transition-colors text-center"
           >
             View on BaseScan
           </a>
