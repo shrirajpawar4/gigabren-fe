@@ -46,17 +46,19 @@ export default function Home() {
       {/* Hero Section */}
       <section className="px-6 py-20 text-center">
         <div className="mb-8">
-          <h2 className="text-gray-400 uppercase tracking-wider">SUBSCRIPTION PLANS</h2>
+          <h2 className="text-gray-400 uppercase tracking-wider">SUBSCRIPTION PLAN</h2>
         </div>
         <div className="flex justify-center mb-4">
           <div className="w-12 h-12">
-            <svg viewBox="0 0 24 24" className="w-full h-full text-emerald-600">
-              <path fill="currentColor" d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
-            </svg>
+            <img 
+              src="/gigabrain-logo-tp.png" 
+              alt="Gigabrain Logo" 
+              className="w-full h-full"
+            />
           </div>
         </div>
         <h1 className="text-5xl font-bold mb-6 text-emerald-400">
-          USDC Subscription
+          USDC Subscriptions
         </h1>
         <p className="text-xl text-gray-400 max-w-3xl mx-auto mb-10">
           Access institutional-grade market intelligence and analytics.
